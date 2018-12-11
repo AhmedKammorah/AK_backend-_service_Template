@@ -1,0 +1,19 @@
+# inheret from ahmedkammorah/django
+FROM ahmedkammorah/django
+# author
+MAINTAINER Ahmed Kammorah
+
+ONBUILD COPY . /app
+ONBUILD RUN pip install -r requirements.txt
+COPY . /app
+#COPY requirements.txt /app
+RUN pip install -r requirements.txt
+
+
+
+EXPOSE 80 8000
+# cd on this dir 
+WORKDIR /app
+
+# main command when Run new container from The Image
+CMD ["/bin/bash"]
